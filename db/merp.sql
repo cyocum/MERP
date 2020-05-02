@@ -545,7 +545,7 @@ insert into static_action (roll_value_min,
 drop table if exists criticals;
 
 create table criticals (
-			critical_id integer primary key,
+			critical_id unsigned tinyint primary key,
 			critical_type text,
 			critical_roll_mod tinyint
        	     	       );
@@ -597,6 +597,12 @@ insert into criticals (critical_id,
 		       critical_roll_mod)
 		       values
 		       (7, 'E', 20);
+
+insert into criticals (critical_id,
+       	    	       critical_type,
+		       critical_roll_mod)
+		       values
+		       (8, 'Possible Fumble', 0);
 
 drop table if exists tooth_and_claw_attack;
 
@@ -989,7 +995,8 @@ insert into tooth_and_claw_attack (roll_value_min,
 
 drop table if exists grapping_and_unbalancing_attack_table;
 
-create table grapping_and_unbalancing_attack_table(roll_value_min integer,
+create table grapping_and_unbalancing_attack_table
+       	     (roll_value_min integer,
        	      roll_value_max integer,
 	      plate unsigned tinyint,
 	      plate_crit_mod tinyint,
@@ -1391,5 +1398,427 @@ insert into grapping_and_unbalancing_attack_table
 	    none_crit_mod)
 	    values
 	    (146, 150, 18, 7, 23, 7, 27, 6, 30, 6, 33, 5);
+
+drop table if exists one_handed_slashing_weapons_attack_table;
+
+create table one_handed_slashing_weapons_attack_table
+       	     (roll_value_min integer,
+       	      roll_value_max integer,
+	      plate unsigned tinyint,
+	      plate_crit_mod tinyint,
+	      chain unsigned tinyint,
+	      chain_crit_mod tinyint,
+	      rigid_leather unsigned tinyint,
+	      rigid_leather_crit_mod tinyint,
+	      soft_leather unsigned tinyint,
+	      soft_leather_crit_mod tinyint,
+	      none unsigned tinyint,
+	      none_crit_mod tinyint,
+    	      foreign key(plate_crit_mod) references criticals(critical_id),
+	      foreign key(chain_crit_mod) references criticals(critical_id),
+	      foreign key(rigid_leather_crit_mod) references criticals(critical_id),
+	      foreign key(soft_leather_crit_mod) references criticals(critical_id),
+	      foreign key(none_crit_mod) references criticals(critical_id));
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (1, 8, 0, 8, 0, 8, 0, 8, 0, 8, 0, 8);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (9, 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (36, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (41, 45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (46, 50, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (51, 55, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (56, 60, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (61, 65, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (66, 70, 3, 0, 3, 0, 2, 0, 3, 0, 0, 0);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (71, 75, 3, 0, 4, 0, 3, 0, 5, 0, 0, 0);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (76, 80, 4, 0, 5, 0, 5, 0, 7, 3, 7, 0);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (81, 85, 5, 0, 6, 0, 6, 0, 9, 3, 9, 3);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (86, 90, 5, 0, 7, 0, 7, 3, 10, 4, 10, 3);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (91, 95, 6, 0, 8, 0, 9, 3, 12, 4, 11, 4);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (96, 100, 6, 0, 9, 0, 10, 4, 13, 4, 13, 5);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (101, 105, 7, 0, 10, 3, 11, 4, 14, 5, 15, 5);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (106, 110, 8, 0, 11, 3, 12, 4, 15, 5, 17, 6);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (111, 115, 8, 3, 12, 4, 13, 5, 17, 5, 19, 6);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (116, 120, 9, 3, 13, 4, 15, 5, 18, 6, 20, 6);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (121, 125, 9, 3, 13, 5, 16, 5, 19, 6, 21, 7);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (126, 130, 10, 4, 14, 5, 17, 6, 20, 6, 23, 7);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (131, 135, 11, 4, 15, 5, 18, 6, 22, 6, 25, 7);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (136, 140, 11, 5, 16, 6, 20, 6, 23, 7, 27, 7);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (141, 145, 12, 6, 17, 6, 21, 7, 24, 7, 28, 7);
+
+insert into one_handed_slashing_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (146, 150, 12, 7, 18, 7, 22, 7, 25, 7, 30, 7);
+
 
 commit;
