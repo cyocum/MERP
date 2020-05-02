@@ -429,87 +429,31 @@ insert into one_handed_concussion_weapons_attack_table
 	    none,
 	    none_crit_mod)
 	    values
-	    (1, 8, 0, 'PF', 0, 'PF', 0, 'PF', 0, 'PF', 0, 'PF');
-
-insert into one_handed_concussion_weapons_attack_table
-       	    (roll_value_min,
-       	    roll_value_max,
-	    plate,
-	    plate_crit_mod,
-	    chain,
-	    chain_crit_mod,
-	    rigid_leather,
-	    rigid_leather_crit_mod,
-	    soft_leather,
-	    soft_leather_crit_mod,
-	    none,
-	    none_crit_mod)
-	    values
-	    (9, 35, 0, '', 0, '', 0, '', 0, '', 0, '');
-
-insert into one_handed_concussion_weapons_attack_table
-       	    (roll_value_min,
-       	    roll_value_max,
-	    plate,
-	    plate_crit_mod,
-	    chain,
-	    chain_crit_mod,
-	    rigid_leather,
-	    rigid_leather_crit_mod,
-	    soft_leather,
-	    soft_leather_crit_mod,
-	    none,
-	    none_crit_mod)
-	    values
-	    (36, 40, 1, '', 0, '', 0, '', 0, '', 0, '');
-
-insert into one_handed_concussion_weapons_attack_table
-       	    (roll_value_min,
-       	    roll_value_max,
-	    plate,
-	    plate_crit_mod,
-	    chain,
-	    chain_crit_mod,
-	    rigid_leather,
-	    rigid_leather_crit_mod,
-	    soft_leather,
-	    soft_leather_crit_mod,
-	    none,
-	    none_crit_mod)
-	    values
-	    (41, 45, 1, '', 1, '', 0, '', 0, '', 0, '');
-
-insert into one_handed_concussion_weapons_attack_table
-       	    (roll_value_min,
-       	    roll_value_max,
-	    plate,
-	    plate_crit_mod,
-	    chain,
-	    chain_crit_mod,
-	    rigid_leather,
-	    rigid_leather_crit_mod,
-	    soft_leather,
-	    soft_leather_crit_mod,
-	    none,
-	    none_crit_mod)
-	    values
-	    (46, 50, 2, '', 2, '', 0, '', 0, '', 0, '');
-
-insert into one_handed_concussion_weapons_attack_table
-       	    (roll_value_min,
-       	    roll_value_max,
-	    plate,
-	    plate_crit_mod,
-	    chain,
-	    chain_crit_mod,
-	    rigid_leather,
-	    rigid_leather_crit_mod,
-	    soft_leather,
-	    soft_leather_crit_mod,
-	    none,
-	    none_crit_mod)
-	    values
-	    (51, 55, 3, '', 3, '', 0, '', 0, '', 0, '');
+	    (1, 8, 0, 8, 0, 8, 0, 8, 0, 8, 0, 8),
+	    (9, 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+	    (36, 40, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+	    (41, 45, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0),
+	    (46, 50, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0),
+	    (51, 55, 3, 0, 3, 0, 0, 0, 0, 0, 0, 0),
+	    (56, 60, 3, 0, 4, 0, 0, 0, 0, 0, 0, 0),
+	    (61, 65, 4, 0, 5, 0, 0, 0, 0, 0, 0, 0),
+	    (66, 70, 5, 0, 6, 0, 2, 0, 3, 0, 0, 0),
+	    (71, 75, 5, 0, 7, 0, 3, 0, 5, 0, 0, 0),
+	    (76, 80, 6, 0, 8, 0, 4, 0, 6, 0, 0, 0),
+	    (81, 85, 7, 0, 9, 0, 6, 0, 7, 3, 6, 0),
+	    (86, 90, 8, 0, 10, 0, 7, 3, 8, 3, 8, 0),
+	    (91, 95, 8, 0, 11, 0, 8, 3, 9, 3, 9, 3),
+	    (96, 100, 9, 0, 12, 3, 9, 4, 10, 4, 10, 4),
+	    (101, 105, 10, 0, 13, 3, 10, 4, 11, 4, 12, 5),
+	    (106, 110, 10, 3, 14, 4, 11, 4, 12, 4, 13, 5),
+	    (111, 115, 11, 3, 15, 4, 12, 5, 13, 5, 14, 6),
+	    (116, 120, 12, 4, 16, 5, 13, 5, 14, 5, 15, 6),
+	    (121, 125, 13, 4, 17, 5, 15, 5, 15, 5, 17, 6),
+	    (126, 130, 13, 5, 18, 5, 16, 5, 16, 6, 18, 7),
+	    (131, 135, 14, 5, 19, 6, 17, 6, 17, 6, 19, 7),
+	    (136, 140, 15, 6, 20, 6, 18, 6, 18, 7, 21, 7),
+	    (141, 145, 16, 6, 21, 7, 19, 7, 19, 7, 22, 7),
+	    (146, 150, 16, 7, 22, 7, 20, 7, 20, 7, 23, 7);
 
 
 commit;
