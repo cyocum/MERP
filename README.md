@@ -92,4 +92,7 @@ Which means that the attack did 12 points of damage and returned a
 type 'A' critical which gives the attacker a -20 on their roll on the
 critical table.
 
+However, the "max results" for each type of attack are not
+incorporated at this time so you will need to remember that when doing
+the search.
 
