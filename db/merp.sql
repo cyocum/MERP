@@ -203,54 +203,14 @@ insert into criticals (critical_id,
        	    	       critical_type,
 		       critical_roll_mod)
 		       values
-		       (0, 'None', 0);
-
-insert into criticals (critical_id,
-       	    	       critical_type,
-		       critical_roll_mod)
-		       values
-		       (1, 'Failure', 0);
-
-insert into criticals (critical_id,
-       	    	       critical_type,
-		       critical_roll_mod)
-		       values
-		       (2, 'T', -50);
-
-insert into criticals (critical_id,
-       	    	       critical_type,
-		       critical_roll_mod)
-		       values
-		       (3, 'A', -20);
-
-insert into criticals (critical_id,
-       	    	       critical_type,
-		       critical_roll_mod)
-		       values
-		       (4, 'B', -10);
-
-insert into criticals (critical_id,
-       	    	       critical_type,
-		       critical_roll_mod)
-		       values
-		       (5, 'C', 0);
-
-insert into criticals (critical_id,
-       	    	       critical_type,
-		       critical_roll_mod)
-		       values
-		       (6, 'D', 10);
-
-insert into criticals (critical_id,
-       	    	       critical_type,
-		       critical_roll_mod)
-		       values
-		       (7, 'E', 20);
-
-insert into criticals (critical_id,
-       	    	       critical_type,
-		       critical_roll_mod)
-		       values
+		       (0, 'None', 0),
+		       (1, 'Failure', 0),
+		       (2, 'T', -50),
+		       (3, 'A', -20),
+		       (4, 'B', -10),
+		       (5, 'C', 0),
+		       (6, 'D', 10),
+		       (7, 'E', 20),
 		       (8, 'Possible Fumble', 0);
 
 drop table if exists tooth_and_claw_attack;
