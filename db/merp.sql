@@ -394,6 +394,122 @@ insert into one_handed_slashing_weapons_attack_table
 	    (141, 145, 12, 6, 17, 6, 21, 7, 24, 7, 28, 7),
 	    (146, 150, 12, 7, 18, 7, 22, 7, 25, 7, 30, 7);
 
+drop table if exists one_handed_concussion_weapons_attack_table;
+
+create table one_handed_concussion_weapons_attack_table
+      	     (roll_value_min integer,
+       	      roll_value_max integer,
+	      plate unsigned tinyint,
+	      plate_crit_mod tinyint,
+	      chain unsigned tinyint,
+	      chain_crit_mod tinyint,
+	      rigid_leather unsigned tinyint,
+	      rigid_leather_crit_mod tinyint,
+	      soft_leather unsigned tinyint,
+	      soft_leather_crit_mod tinyint,
+	      none unsigned tinyint,
+	      none_crit_mod tinyint,
+    	      foreign key(plate_crit_mod) references criticals(critical_id),
+	      foreign key(chain_crit_mod) references criticals(critical_id),
+	      foreign key(rigid_leather_crit_mod) references criticals(critical_id),
+	      foreign key(soft_leather_crit_mod) references criticals(critical_id),
+	      foreign key(none_crit_mod) references criticals(critical_id));
+
+insert into one_handed_concussion_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (1, 8, 0, 'PF', 0, 'PF', 0, 'PF', 0, 'PF', 0, 'PF');
+
+insert into one_handed_concussion_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (9, 35, 0, '', 0, '', 0, '', 0, '', 0, '');
+
+insert into one_handed_concussion_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (36, 40, 1, '', 0, '', 0, '', 0, '', 0, '');
+
+insert into one_handed_concussion_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (41, 45, 1, '', 1, '', 0, '', 0, '', 0, '');
+
+insert into one_handed_concussion_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (46, 50, 2, '', 2, '', 0, '', 0, '', 0, '');
+
+insert into one_handed_concussion_weapons_attack_table
+       	    (roll_value_min,
+       	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (51, 55, 3, '', 3, '', 0, '', 0, '', 0, '');
 
 
 commit;
