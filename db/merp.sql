@@ -514,4 +514,60 @@ insert into two_handed_weapons_attack_table
 	    (141, 145, 21, 7, 31, 7, 37, 7, 40, 7, 45, 7),
 	    (146, 150, 22, 7, 33, 7, 40, 7, 43, 7, 48, 7);
 
+drop table if exists missle_weapons_attack_table;
+
+create table missle_weapons_attack_table
+      	     (roll_value_min integer,
+       	      roll_value_max integer,
+	      plate unsigned tinyint,
+	      plate_crit_mod tinyint,
+	      chain unsigned tinyint,
+	      chain_crit_mod tinyint,
+	      rigid_leather unsigned tinyint,
+	      rigid_leather_crit_mod tinyint,
+	      soft_leather unsigned tinyint,
+	      soft_leather_crit_mod tinyint,
+	      none unsigned tinyint,
+	      none_crit_mod tinyint,
+    	      foreign key(plate_crit_mod) references criticals(critical_id),
+	      foreign key(chain_crit_mod) references criticals(critical_id),
+	      foreign key(rigid_leather_crit_mod) references criticals(critical_id),
+	      foreign key(soft_leather_crit_mod) references criticals(critical_id),
+	      foreign key(none_crit_mod) references criticals(critical_id));
+
+insert into missle_weapons_attack_table
+       	    (roll_value_min,
+	    roll_value_max,
+	    plate,
+	    plate_crit_mod,
+	    chain,
+	    chain_crit_mod,
+	    rigid_leather,
+	    rigid_leather_crit_mod,
+	    soft_leather,
+	    soft_leather_crit_mod,
+	    none,
+	    none_crit_mod)
+	    values
+	    (1, 8, 0, 8, 0, 8, 0, 8, 0, 8, 0, 8),
+    	    (9, 55, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+    	    (56, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+	    (61, 65, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+	    (66, 70, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+	    (71, 75, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+	    (76, 80, 2, 0, 2, 0, 0, 0, 4, 0, 0, 0),
+	    (81, 85, 3, 0, 4, 0, 3, 0, 6, 0, 0, 0),
+	    (86, 90, 4, 0, 6, 0, 5, 0, 8, 3, 0, 0),
+	    (91, 95, 5, 0, 7, 0, 7, 3, 10, 3, 8, 3),
+	    (96, 100, 6, 0, 8, 3, 9, 3, 12, 4, 10, 4),
+    	    (101, 105, 7, 0, 10, 3, 10, 4, 13, 4, 11, 5),
+	    (106, 110, 8, 3, 13, 4, 12, 4, 14, 4, 13, 5),
+	    (111, 115, 9, 3, 14, 4, 13, 4, 16, 5, 15, 5),
+	    (116, 120, 10, 3, 16, 4, 15, 5, 17, 5, 16, 6),
+	    (121, 125, 11, 4, 17, 5, 17, 5, 19, 6, 18, 6),
+	    (126, 130, 11, 4, 19, 5, 19, 6, 20, 6, 20, 6),
+	    (131, 135, 12, 5, 20, 5, 21, 6, 22, 6, 20, 6),
+	    (136, 140, 13, 5, 22, 6, 23, 6, 23, 7, 23, 7),
+	    (141, 145, 14, 6, 25, 7, 26, 7, 26, 7, 27, 7);
+	    
 commit;
