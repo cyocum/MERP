@@ -614,4 +614,49 @@ insert into crit_attack_table
 	      (117, 119, 'Blow to side crushes chest cavity. Drops and dies in 3 rounds.', 'Sever spine. Collapses immediately. Paralyzed from the neck down - permanently. +20 hits.', 'Strike through kidneys. +9 hits. Knocked down and dies after 6 rounds of very intense agony. Sad.', 'Blow to shield shoulder. Stunned 9 rounds. -20 to activity. If no shield: unconscious and upper arm shattered.', 'Both legs wrapped up. Tumbles to ground and knocked out. -80 to activity due to a broken arm and a broken ankle. +20 hits.', 'Strike through the eye. Dies instantly and falls upon attacker, who then takes 20 hits and is pinned for 6 rounds.', 'Strike to body destroys a variety of organs.  Dies in 3 rounds, but the ignorant brute is fully active until then.'),
 	      (120, 120, 'Blast to chest area. Destroy heart. Dies immediately. +25 hits. Fine work.', 'Strike to head destroys brain and makes life difficult for the unfortunate fool. Expires in a heap, immediately.', 'Shot through both ears. Hearing impaired, dies instantly. Awesome shot.', 'Frightening strike to temple. Knocked back 20 feet. Dies instantly. Not nice', 'Windpipe crushed. Dies instantly due to massive shock and savage asphyxiation.', 'Strike through ear destroys brain. The unforunate lummox dies instantly, and any ear was is removed', 'Superb strike drives ribe through heart. Drops and dies in 6 agonizing rounds.');
 
+drop table if exists base_spells_attack;
+
+create table base_spells_attack
+       	     (roll_value_min unsigned tinyint,
+	      roll_value_max unsigned tinyint,
+	      plate_and_chain text,
+	      leather text,
+	      no_armor text);
+
+insert into base_spells_attack
+      	     (roll_value_min,
+	      roll_value_max,
+	      plate_and_chain,
+	      leather,
+	      no_armor)
+	      values
+	      (1, 2, 'F', 'F', 'F'),
+	      (3, 4, 'F', 'F', 'F'),
+	      (5, 8, 'F', 'F', '+70'),
+	      (9, 12, 'F', 'F', '+65'),
+	      (13, 16, 'F', '+45', '+60'),
+	      (17, 20, '+45', '+40', '+50'),
+	      (21, 24, '+40', '+35', '+45'),
+	      (25, 28, '+35', '+30', '+35'),
+	      (29, 32, '+30', '+25', '+30'),
+	      (33, 36, '+25', '+20', '+20'),
+	      (37, 40, '+20', '+15', '+15'),
+	      (41, 44, '+15', '+10', '+5'),
+	      (45, 48, '+10', '+5', '0'),
+	      (49, 52, '+5', '0', '0'),
+	      (53, 56, '0', '0', '-5'),
+	      (57, 60, '0', '-5', '-10'),
+	      (61, 64, '-5', '-5', '-15'),
+	      (65, 68, '-5', '-10', '-20'),
+	      (69, 72, '-10', '-15', '-25'),
+	      (63, 76, '-25', '-20', '-30'),
+	      (77, 80, '-30', '-25', '-35'),
+	      (81, 84, '-35', '-30', '-40'),
+	      (85, 88, '-40', '-35', '-45'),
+	      (89, 92, '-45', '-40', '-50'),
+	      (93, 96, '-50', '-45', '-55'),
+	      (97, 99, '-65', '-65', '-65'),
+	      (100, 100, '-90', '-90', '-90');
+
+
 commit;
