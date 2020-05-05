@@ -772,4 +772,67 @@ insert into fumble_attack_table
 	      'Mental collapse. Spell is cast in direction opposite to the intended line. Lose all spell casting ability for 3 months',
 	      'Your fall turns into a dive. You crush your skull and die.');
 
+drop table if exists bolt_spells_attack_table;
+     	      	     
+create table bolt_spells_attack_table
+       	     (roll_value_min integer,
+       	     roll_value_max integer,	
+	     plate unsigned tinyint,
+	     plate_crit_mod tinyint,
+	     chain unsigned tinyint,
+	     chain_crit_mod tinyint,
+	     rigid_leather unsigned tinyint,
+	     rigid_leather_crit_mod tinyint,
+	     soft_leather unsigned tinyint,
+	     soft_leather_crit_mod tinyint,
+	     none unsigned tinyint,
+	     none_crit_mod tinyint,
+    	     foreign key(plate_crit_mod) references criticals(critical_id),
+	     foreign key(chain_crit_mod) references criticals(critical_id),
+	     foreign key(rigid_leather_crit_mod) references criticals(critical_id),
+	     foreign key(soft_leather_crit_mod) references criticals(critical_id),
+	     foreign key(none_crit_mod) references criticals(critical_id));
+
+insert into bolt_spells_attack_table
+       	     (roll_value_min,
+       	     roll_value_max,	
+	     plate,
+	     plate_crit_mod,
+	     chain,
+	     chain_crit_mod,
+	     rigid_leather,
+	     rigid_leather_crit_mod,
+	     soft_leather,
+	     soft_leather_crit_mod,
+	     none,
+	     none_crit_mod)
+	     values
+	     (1, 2, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1),
+	     (3, 10, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1),
+	     (11, 20, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0),
+	     (21, 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+	     (36, 40, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+	     (41, 45, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0),
+	     (46, 50, 3, 0, 1, 0, 0, 0, 1, 0, 0, 0),
+	     (51, 55, 4, 0, 2, 0, 1, 0, 1, 0, 0, 0),
+	     (56, 60, 5, 0, 2, 0, 2, 0, 2, 0, 0, 0),
+	     (61, 65, 6, 0, 3, 0, 4, 0, 3, 0, 8, 3),
+	     (66, 70, 7, 3, 4, 0, 5, 0, 4, 3, 10, 3),
+	     (71, 75, 7, 3, 5, 3, 6, 0, 5, 3, 11, 4),
+	     (76, 80, 8, 3, 6, 3, 7, 3, 6, 4, 12, 4),
+	     (81, 85, 8, 3, 7, 3, 8, 3, 7, 4, 13, 4),
+	     (86, 90, 9, 3, 8, 3, 9, 4, 8, 4, 14, 4),
+	     (91, 95, 9, 3, 9, 4, 10, 4, 10, 4, 15, 5),
+	     (96, 100, 10, 3, 10, 4, 11, 4, 12, 5, 16, 5),
+	     (101, 105, 10, 4, 11, 4, 12, 5, 14, 5, 18, 5),
+	     (106, 110, 11, 4, 12, 5, 13, 5, 16, 5, 20, 5),
+	     (111, 115, 12, 4, 13, 5, 14, 5, 18, 5, 22, 6),
+	     (116, 120, 12, 5, 14, 5, 15, 5, 20, 6, 24, 6),
+	     (121, 125, 13, 5, 15, 5, 16, 6, 22, 6, 26, 7),
+	     (126, 130, 14, 5, 16, 6, 17, 6, 24, 7, 28, 7),
+	     (131, 135, 15, 5 ,17, 6, 18, 7, 26, 7, 20, 7),
+	     (136, 140, 16, 6, 18, 6, 19, 7, 28, 7, 32, 7),
+	     (141, 145, 17, 6, 20, 7, 20, 7, 30, 7, 34, 7),
+	     (146, 156, 18, 7, 22, 7, 22, 7, 31, 7, 36, 7);
+
 commit;
