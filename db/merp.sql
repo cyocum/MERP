@@ -835,4 +835,65 @@ insert into bolt_spells_attack_table
 	     (141, 145, 17, 6, 20, 7, 20, 7, 30, 7, 34, 7),
 	     (146, 156, 18, 7, 22, 7, 22, 7, 31, 7, 36, 7);
 
+drop table if exists ball_spells_attack_table;
+
+create table ball_spells_attack_table
+       	     (roll_value_min integer,
+       	     roll_value_max integer,	
+	     plate unsigned tinyint,
+	     plate_crit_mod tinyint,
+	     chain unsigned tinyint,
+	     chain_crit_mod tinyint,
+	     rigid_leather unsigned tinyint,
+	     rigid_leather_crit_mod tinyint,
+	     soft_leather unsigned tinyint,
+	     soft_leather_crit_mod tinyint,
+	     none unsigned tinyint,
+	     none_crit_mod tinyint,
+    	     foreign key(plate_crit_mod) references criticals(critical_id),
+	     foreign key(chain_crit_mod) references criticals(critical_id),
+	     foreign key(rigid_leather_crit_mod) references criticals(critical_id),
+	     foreign key(soft_leather_crit_mod) references criticals(critical_id),
+	     foreign key(none_crit_mod) references criticals(critical_id));
+
+insert into ball_spells_attack_table
+       	     (roll_value_min,
+       	     roll_value_max,	
+	     plate,
+	     plate_crit_mod,
+	     chain,
+	     chain_crit_mod,
+	     rigid_leather,
+	     rigid_leather_crit_mod,
+	     soft_leather,
+	     soft_leather_crit_mod,
+	     none,
+	     none_crit_mod)
+	     values
+      	     (1, 4, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1),
+	     (5, 8, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1),
+	     (9, 12, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0),
+	     (13, 16, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0),
+	     (17, 20, 1, 0, 0, 0, 0, 0, 0, 0, 3, 0),
+	     (21, 24, 2, 0, 1, 0, 0, 0, 0, 0, 4, 0),
+	     (25, 28, 3, 0, 2, 0, 1, 0, 0, 0, 5, 3),
+	     (29, 32, 4, 0, 3, 0, 2, 0, 0, 0, 6, 3),
+	     (33, 36, 5, 3, 4, 0, 3, 0, 1, 0, 7, 3),
+	     (37, 40, 6, 3, 5, 3, 4, 0, 2, 0, 8, 3),
+	     (41, 44, 7, 3, 6, 3, 5, 3, 3, 0, 9, 3),
+	     (45, 48, 8, 3, 7, 3, 6, 3, 4, 0, 10, 4),
+	     (49, 52, 9, 3, 8, 3, 7, 3, 5, 0, 11, 4),
+	     (53, 56, 10, 4, 9, 3, 8, 3, 6, 3, 12, 4),
+	     (57, 60, 11, 4, 10, 4, 9, 3, 7, 3, 13, 4),
+	     (61, 64, 12, 4, 11, 4, 10, 4, 8, 3, 14, 4),
+	     (65, 68, 12, 4, 11, 4, 10, 4, 9, 3, 15, 5),
+	     (69, 72, 13, 4, 12, 4, 11, 4, 10, 3, 16, 5),
+	     (73, 76, 13, 5, 12, 4, 11, 4, 10, 3, 17, 5),
+	     (77, 80, 14, 5, 13, 5, 12, 4, 11, 4, 18, 5),
+	     (81, 84, 14, 5, 13, 5, 12, 5, 11, 4, 19, 5),
+	     (85, 88, 15, 5, 14, 5, 13, 5, 12, 4, 20, 5),
+	     (89, 92, 15, 5, 14, 5, 13, 5, 12, 4, 21, 5),
+	     (93, 96, 16, 5, 15, 5, 14, 5, 13, 5, 22, 5),
+	     (97, 99, 19, 6, 18, 6, 17, 6, 16, 6, 28, 6),
+	     (100, 100, 22, 7, 21, 7, 20, 7, 19, 7, 34, 7);
 commit;
