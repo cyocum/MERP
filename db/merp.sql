@@ -31,7 +31,6 @@ insert into open_ended_roll (roll_value_min,
 			     (-150, -101, 10,0,0,0,0,0,0,0,0),
 			     (-100, -51, 30,10,0,0,0,0,0,0,0),
 			     (-50, -26, 50,30,10,0,0,0,0,0,0),
-			     (-25, -0, 70,50,30,5,0,0,0,0,0),
 			     (-25, 0, 70,50,30,5,0,0,0,0,0),
 			     (1, 20, 80,60,50,10,5,0,0,0,0),
 			     (21, 40, 90,70,60,20,10,5,0,0,0),
@@ -48,11 +47,11 @@ insert into open_ended_roll (roll_value_min,
 			     (146, 155, 130,130,120,110,100,100,100,70,60),
 			     (156, 165, 140,130,130,120,110,110,100,80,70),
 			     (166, 185, 140,140,130,120,120,110,110,90,80),
-			     (166, 185, 140,140,130,120,120,110,110,90,80),
 			     (186, 225, 150,140,140,130,120,120,110,100,90),
 			     (226, 275, 150,150,140,130,130,120,120,100,100),
-			     (226, 275, 150,150,140,130,130,120,120,100,100),
 			     (276, 9223372036854775807, 150,150,140,130,130,120,120,100,100);
+
+create unique index idx_open_ended_roll on open_ended_roll(roll_value_min, roll_value_max);
 
 drop table if exists static_action;
 
@@ -191,6 +190,8 @@ insert into static_action (roll_value_min,
 		    'ABSOLUTE SUCCESS: You are aware of everything in the area that you are examining. This includes information on topics other than the one requiring the perception roll.'
        	    	   );
 
+create unique index idx_static_action on static_action(roll_value_min, roll_value_max);
+
 drop table if exists criticals;
 
 create table criticals (
@@ -272,9 +273,11 @@ insert into tooth_and_claw_attack (roll_value_min,
 				   (141, 145, 22, 6, 25, 6, 29, 7, 33, 7, 38, 7),
 				   (146, 150, 24, 7, 27, 7, 32, 7, 36, 7, 40, 7); 
 
-drop table if exists grapping_and_unbalancing_attack_table;
+create unique index idx_tooth_and_claw_attack on tooth_and_claw_attack(roll_value_min, roll_value_max);
 
-create table grapping_and_unbalancing_attack_table
+drop table if exists grappling_and_unbalancing_attack_table;
+
+create table grappling_and_unbalancing_attack_table
        	     (roll_value_min integer,
        	      roll_value_max integer,
 	      plate unsigned tinyint,
@@ -294,7 +297,7 @@ create table grapping_and_unbalancing_attack_table
 	      foreign key(none_crit_mod) references criticals(critical_id));
 
 
-insert into grapping_and_unbalancing_attack_table
+insert into grappling_and_unbalancing_attack_table
        	    (roll_value_min,
        	    roll_value_max ,
 	    plate,
@@ -309,7 +312,6 @@ insert into grapping_and_unbalancing_attack_table
 	    none_crit_mod)
 	    values
 	    (1, 2, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1),
-	    (3, 45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 	    (3, 45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 	    (46, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 	    (51, 55, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -332,6 +334,8 @@ insert into grapping_and_unbalancing_attack_table
 	    (136, 140, 14, 7, 19, 6, 22, 5, 26, 6, 28, 5),
 	    (141, 145, 16, 7, 21, 7, 25, 6, 28, 6, 30, 5),
 	    (146, 150, 18, 7, 23, 7, 27, 6, 30, 6, 33, 5);
+
+create unique index idx_grappling_and_unbalancing_attack_table on grappling_and_unbalancing_attack_table(roll_value_min, roll_value_max);
 
 drop table if exists one_handed_slashing_weapons_attack_table;
 
@@ -394,6 +398,8 @@ insert into one_handed_slashing_weapons_attack_table
 	    (141, 145, 12, 6, 17, 6, 21, 7, 24, 7, 28, 7),
 	    (146, 150, 12, 7, 18, 7, 22, 7, 25, 7, 30, 7);
 
+create unique index idx_one_handed_slashing_weapons_attack_table on one_handed_slashing_weapons_attack_table(roll_value_min, roll_value_max);
+
 drop table if exists one_handed_concussion_weapons_attack_table;
 
 create table one_handed_concussion_weapons_attack_table
@@ -455,6 +461,8 @@ insert into one_handed_concussion_weapons_attack_table
 	    (141, 145, 16, 6, 21, 7, 19, 7, 19, 7, 22, 7),
 	    (146, 150, 16, 7, 22, 7, 20, 7, 20, 7, 23, 7);
 
+create unique index idx_one_handed_concussion_weapons_attack_table on one_handed_concussion_weapons_attack_table(roll_value_min, roll_value_max);
+
 drop table if exists two_handed_weapons_attack_table;
 
 create table two_handed_weapons_attack_table
@@ -505,7 +513,6 @@ insert into two_handed_weapons_attack_table
 	    (101, 105, 12, 3, 16, 4, 17, 5, 22, 5, 22, 6),
 	    (106, 110, 13, 3, 18, 4, 19, 5, 24, 5, 25, 6),
 	    (111, 115, 14, 4, 20, 5, 22, 5, 27, 6, 28, 7),
-	    (111, 115, 14, 4, 20, 5, 22, 5, 27, 6, 28, 7),
 	    (116, 120, 15, 4, 22, 5, 24, 6, 29, 6, 31, 7),
 	    (121, 125, 16, 5, 24, 5, 27, 6, 31, 6, 33, 7),
 	    (126, 130, 17, 5, 26, 6, 29, 6, 33, 7, 36, 7),
@@ -513,6 +520,8 @@ insert into two_handed_weapons_attack_table
 	    (136, 140, 20, 6, 29, 7, 34, 7, 38, 7, 42, 7),
 	    (141, 145, 21, 7, 31, 7, 37, 7, 40, 7, 45, 7),
 	    (146, 150, 22, 7, 33, 7, 40, 7, 43, 7, 48, 7);
+
+create unique index idx_two_handed_weapons_attack_table on two_handed_weapons_attack_table(roll_value_min, roll_value_max);
 
 drop table if exists missle_weapons_attack_table;
 
@@ -569,6 +578,8 @@ insert into missle_weapons_attack_table
 	    (131, 135, 12, 5, 20, 5, 21, 6, 22, 6, 20, 6),
 	    (136, 140, 13, 5, 22, 6, 23, 6, 23, 7, 23, 7),
 	    (141, 145, 14, 6, 25, 7, 26, 7, 26, 7, 27, 7);
+
+create unique index idx_missle_weapons_attack_table on missle_weapons_attack_table(roll_value_min, roll_value_max);
 
 drop table if exists crit_attack_table;
 
@@ -831,6 +842,8 @@ insert into crit_attack_table
 	      'Charge disrupts cell structure. Entire body turned to dust.',
 	      'Blast annihilates entire skeleton. Reduced to a gelantinous pulp. try a spatula.');
 
+create unique index idx_crit_attack_table on crit_attack_table(roll_value_min, roll_value_max);
+
 drop table if exists base_spells_attack;
 
 create table base_spells_attack
@@ -874,6 +887,9 @@ insert into base_spells_attack
 	      (93, 96, '-50', '-45', '-55'),
 	      (97, 99, '-65', '-65', '-65'),
 	      (100, 100, '-90', '-90', '-90');
+
+
+create unique index idx_base_spells_attack on base_spells_attack(roll_value_min, roll_value_max);
 
 drop table if exists fumble_attack_table;
 
@@ -989,6 +1005,8 @@ insert into fumble_attack_table
 	      'Mental collapse. Spell is cast in direction opposite to the intended line. Lose all spell casting ability for 3 months',
 	      'Your fall turns into a dive. You crush your skull and die.');
 
+create unique index idx_fumble_attack_table on fumble_attack_table(roll_value_min, roll_value_max);
+
 drop table if exists bolt_spells_attack_table;
      	      	     
 create table bolt_spells_attack_table
@@ -1052,6 +1070,8 @@ insert into bolt_spells_attack_table
 	     (141, 145, 17, 6, 20, 7, 20, 7, 30, 7, 34, 7),
 	     (146, 156, 18, 7, 22, 7, 22, 7, 31, 7, 36, 7);
 
+create index idx_bolt_spells_attack_table on bolt_spells_attack_table(roll_value_min, roll_value_max);
+
 drop table if exists ball_spells_attack_table;
 
 create table ball_spells_attack_table
@@ -1113,4 +1133,7 @@ insert into ball_spells_attack_table
 	     (93, 96, 16, 5, 15, 5, 14, 5, 13, 5, 22, 5),
 	     (97, 99, 19, 6, 18, 6, 17, 6, 16, 6, 28, 6),
 	     (100, 100, 22, 7, 21, 7, 20, 7, 19, 7, 34, 7);
+
+create unique index idx_ball_spells_attack_table on ball_spells_attack_table(roll_value_min, roll_value_max);
+
 commit;
