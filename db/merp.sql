@@ -910,8 +910,8 @@ insert into fumble_attack_table
 	      moving_maneuver)
 	      values
 	      (-49, 5,
-	      'Lose your brip. No further activity this round',
-	      'Lose your brip. No further activity this round',
+	      'Lose your grip. No further activity this round',
+	      'Lose your grip. No further activity this round',
 	      'Lose concentration due to strain. Spell lost, but not power points.',
 	      'You hesitate and fail to act.'),
 	      (6, 20,
