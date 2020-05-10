@@ -34,8 +34,12 @@ charts.
 
 Many of the tables will have a `roll_value_min` and `roll_value_max`
 columns.  this makes it easy to use the SQL BETWEEN keyword.  For
-instance, `select routine from open_ended_roll where 55 between
+instance, 
+
+```SQL
+select routine from open_ended_roll where 55 between
 roll_value_min and roll_value_max`.
+```
 
 ### MT-1 Moving Manoeuvre Table
 
@@ -50,9 +54,9 @@ select light from open_ended_roll where 55 between
 roll_value_min and roll_value_max
 ```
 
-On the original MT-1 table, anything less than -151 is an F.  This was
-not able to be represented in the DB so you will need to remember that
-when using this table.
+On the original MT-1 table, anything less than -151 is an F.  This is
+not represented in the DB so you will need to remember that when using
+this table.
 
 The difficulty list is:
 
@@ -103,7 +107,7 @@ type and the critical table modifier.  Additionally, the `criticals`
 table also stores the "Attack Failure" information so if you get a 'F'
 in the critical, the attack has failed.  This table is linked to the
 Tooth and Claw Attack Table via the `*_crit_mod` column that goes with
-the armor type.  In the example aboveTo make that link, you `inner
+the armor type.  In the example above, to make that link, you `inner
 join` the corresponding `soft_leather_crit_mod` column to the
 `critical_id` column in the `criticals` table.  This will return for
 the above:
@@ -135,7 +139,7 @@ NB: There is an exceptional table called the `base_spells_attack`
 table which only has a few of the usual armor types: plate_and_chain,
 leather, no_armor.
 
-### Critical/Fumble Tables
+### Critical/Fumble Tables (CT/FT)
 
 The critical table has the resoultion for the various kinds of
 criticals.  To use this table, take the critical modifier from the
