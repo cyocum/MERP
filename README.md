@@ -172,4 +172,22 @@ For fumbles, the various categories are columns and are thus:
 * spell_failure
 * moving_maneuver
 
+## SQL GUI Tools
+
+There are various SQL tools which have a GUI for working with the
+database.  The one I would recommend is
+[DBeaver](https://dbeaver.io/).  For DBeaver to work with SQLite, you
+will need to create a binary of the db.  On Linux/Unix systems, you
+can do the following:
+
+```bash
+cat db/merp.sql | sqlite3 merps.db
+```
+
+which will create the `merps.db` file that you can use with DBeaver.
+For Windows, you can read the SQLite documentation ["Double-click
+Starup On Windows"](https://sqlite.org/cli.html).
+
+
+
 
